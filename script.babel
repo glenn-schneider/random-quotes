@@ -1,0 +1,56 @@
+const quotesList = [
+  {quote: "You must be the change you wish to see in the world", author: "Mahatma Gandhi"},
+  {quote: "Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.",  author: "Martin Luther King Jr"},
+  {quote: "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",  author: "Helen Keller"},
+  {quote: "It is during our darkest moments that we must focus to see the light.",  author: "Aristotle"},
+  {quote: "Be yourself; everyone else is already taken.",  author: "Oscar Wilde"},
+  {quote: "You may say I'm a dreamer, but I'm not the only one. I hope someday you'll join us. And the world will live as one.",  author: "John Lennon "},
+  {quote: "The future belongs to those who believe in the beauty of their dreams.",  author: "Eleanor Roosevelt"},
+  {quote: "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose.",  author: "Dr. Seuss"},
+  {quote: "If life were predictable it would cease to be life and be without flavor.",  author: "Eleanor Roosevelt"},
+  {quote: "Success is not final; failure is not fatal: It is the courage to continue that counts.",  author: "Winston S. Churchill"},
+  {quote: "If we lose credibility just by admitting fault, then we didn't have any in the first place.",  author: "Admiral Fujitora"},
+  {quote: "When do you think a person dies? When a bullet from a pistol pierces his heart? No. When he's attacked by an incurable disease? No. When he eats a soup of deadly poisonous mushrooms? No. A man dies when people forget him!",  author: "Dr. Hiriluk"},
+]
+
+let message = {
+  quote: '',
+  author: ''
+}
+  
+function newQuote() {
+  let randomQuoteId = Math.floor(Math.random() * quotesList.length);
+  message = ({
+    quote: quotesList[randomQuoteId].quote,
+    author: quotesList[randomQuoteId].author,
+  });
+  
+  $("#text").fadeOut(800, function() {
+    $(this).text(message.quote).fadeIn();
+  });
+                     
+  $("#author").fadeOut(800, function() {
+    $(this).text(message.author).fadeIn();
+  });
+                       
+  $("#tweet-quote").attr("href", "https://twitter.com/intent/tweet?text=" + encodeURIComponent('"' + message.quote + '" -' + message.author));
+  
+  const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+  $('html body').animate(
+  {
+    backgroundColor: randomColor,
+    color: randomColor
+  }, 800);
+  
+  $('.button').animate(
+    {
+      backgroundColor: randomColor,
+    },
+  800);
+}
+
+
+
+$(document).ready(function() {
+    newQuote();
+});

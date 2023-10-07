@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  background: white;
+}
+
+#quote-box {
+  background-color: white;
+  height: auto;
+  padding: 50px;
+  width: auto;
+  max-width: 50%;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.button {
+  color: white !important;
+  background-color: gray;
+}
+
+#text {
+  font-size: 2em;
+}
+
+#author {
+  font-size: 1.5em;
+}
